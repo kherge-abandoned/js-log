@@ -1,8 +1,6 @@
 /**
  * Manages a collection of attributes.
  *
- * ?
- *
  * @constructor
  */
 Herrera.Log.Entry.Attributes = function () {
