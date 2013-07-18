@@ -1,6 +1,8 @@
 Log
 ===
 
+[![Build Status][]](https://travis-ci.org/herrera-io/js-log)
+
 Log is a simple log manager designed to be used either with a browser (or
 Node.js) console, or as a drop in alternative. The basic methods (debug, error,
 info, log, warn) can all be used the same way, and can be either serialized and
@@ -26,4 +28,5 @@ Documentation
 
 - [HTML Example][]
 
+[Build Status]: https://travis-ci.org/herrera-io/js-log.png?branch=master
 [HTML Example]: doc/example.html
