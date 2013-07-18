@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                     compress: true,
                     mangle: true,
                     sourceMap: "build/log.min.js.map",
-                    banner: "/**\n * Log - A simple log manager.\n * &copy; 2013 Kevin Herrera.\n * https://github.com/herrera-io/js-log/\n */"
+                    banner: "/**\n * Log - A simple log manager.\n * (c) 2013 Kevin Herrera.\n * https://github.com/herrera-io/js-log/\n */"
                 },
                 "logjs": {
                     files: {
