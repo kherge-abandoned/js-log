@@ -27,6 +27,10 @@ Documentation
 =============
 
 - [HTML Example][]
+- [Install][]
+- [Usage][]
 
 [Build Status]: https://travis-ci.org/herrera-io/js-log.png?branch=master
 [HTML Example]: doc/example.html
+[Install]: doc/00-Install.md
+[Usage]: doc/01-Usage.md
