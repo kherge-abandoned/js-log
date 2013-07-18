@@ -15,12 +15,15 @@ log.onDone(
     }
 );
 
-log.error("This object is bad!", badObject).done();
+log
+    .error("This object is bad!", badObject)
+    .attr("my", "attribute")
+    .done();
 ```
 
 Documentation
 =============
 
-- [HTML Exmaple][]
+- [HTML Example][]
 
 [HTML Example]: doc/example.html
