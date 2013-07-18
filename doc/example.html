@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example</title>
+    <style type="text/css">
+      body {
+        font-family: monospace;
+        white-space: pre;
+      }
+    </style>
+    <script type="text/javascript" src="../src/lib/Herrera.js"></script>
+    <script type="text/javascript" src="../src/lib/Herrera/Log.js"></script>
+    <script type="text/javascript" src="../src/lib/Herrera/Log/Entry.js"></script>
+    <script type="text/javascript" src="../src/lib/Herrera/Log/Entry/Attribute.js"></script>
+    <script type="text/javascript" src="../src/lib/Herrera/Log/Entry/Attributes.js"></script>
+    <script type="text/javascript">
+      var log = new Herrera.Log();
+
+      if (typeof console !== "undefined") {
+          log.onDone(
+              function (entry) {
+                  "use strict";
+
+                  // assuming console is smart, and can render friendly objects
+                  if (typeof console[entry.getType()] !== "undefined") {
+                      console[entry.getType()](entry.toObject());
+                  }
+              }
+          );
+      }
+
+      log
+          .debug("This is a debugging message! (.log() alias)")
+          .attr("abc", 123)
+          .done();
+
+      log
+          .error("This is an error message!")
+          .attr("def", 456)
+          .done();
+
+      log
+          .info("This is an informative message!")
+          .attr("ghi", 789)
+          .done();
+
+      log
+          .log("This is a debugging message!")
+          .attr("jkl", "012")
+          .done();
+
+      log
+          .warn("This is a warning message!")
+          .attr("mno", 345)
+          .done();
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      document.write("\n" + log.toString() + "\n\n(Open console to see more.)");
+    </script>
+  </body>
+</html>
