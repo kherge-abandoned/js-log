@@ -1,6 +1,6 @@
 {
     "name": "h-log",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "A simple log manager.",
     "keywords": ["log"],
     "homepage": "https://github.com/herrera-io/js-log",
