@@ -4,7 +4,8 @@ module.exports = function (grunt) {
     grunt.initConfig(
         {
             qunit: {
-                "logjs": ["qunit.html"]
+                "logjs": ["qunit.html"],
+                "logjs (minified)": ["qunit.min.html"]
             },
             uglify: {
                 options: {
