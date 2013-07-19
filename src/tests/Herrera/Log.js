@@ -1,4 +1,4 @@
-var log;
+var added, log;
 
 module(
     "Herrera.Log",
@@ -6,8 +6,24 @@ module(
         setup: function () {
             "use strict";
 
+            added = 0;
             log = new Herrera.Log();
+
+            log.added().add(
+                function () {
+                    added++;
+                }
+            );
         }
+    }
+);
+
+test(
+    "added()",
+    function () {
+        "use strict";
+
+        ok(log.added() instanceof Herrera.Log.Event, "The event is returned.");
     }
 );
 
@@ -29,6 +45,8 @@ test(
         );
 
         deepEqual(result.getLog(), log, "The log manager is set.");
+
+        equal(added, 1, "The \"added\" event is triggered.");
     }
 );
 
@@ -59,6 +77,8 @@ test(
         );
 
         deepEqual(result.getLog(), log, "The log manager is set.");
+
+        equal(added, 1, "The \"added\" event is triggered.");
     }
 );
 
@@ -98,6 +118,8 @@ test(
         );
 
         deepEqual(result.getLog(), log, "The log manager is set.");
+
+        equal(added, 1, "The \"added\" event is triggered.");
     }
 );
 
@@ -119,6 +141,8 @@ test(
         );
 
         deepEqual(result.getLog(), log, "The log manager is set.");
+
+        equal(added, 1, "The \"added\" event is triggered.");
     }
 );
 
@@ -184,5 +208,7 @@ test(
         );
 
         deepEqual(result.getLog(), log, "The log manager is set.");
+
+        equal(added, 1, "The \"added\" event is triggered.");
     }
 );

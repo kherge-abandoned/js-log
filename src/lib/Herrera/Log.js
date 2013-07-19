@@ -59,7 +59,18 @@
 
             entries.push(entry);
 
+            added.notify(entry);
+
             return entry;
+        };
+
+        /**
+         * Returns the "added" event.
+         *
+         * @returns {Herrera.Log.Event} The event.
+         */
+        this.added = function () {
+            return added;
         };
 
         /**
