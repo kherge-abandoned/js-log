@@ -1,5 +1,5 @@
 {
-    "name": "log",
+    "name": "h-log",
     "version": "0.0.0",
     "description": "A simple log manager.",
     "keywords": ["log"],
