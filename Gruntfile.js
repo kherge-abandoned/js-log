@@ -21,7 +21,8 @@ module.exports = function (grunt) {
                             "src/lib/Herrera/Log.js",
                             "src/lib/Herrera/Log/Entry.js",
                             "src/lib/Herrera/Log/Entry/Attribute.js",
-                            "src/lib/Herrera/Log/Entry/Attributes.js"
+                            "src/lib/Herrera/Log/Entry/Attributes.js",
+                            "src/lib/Herrera/Log/Event.js"
                         ]
                     }
                 }
