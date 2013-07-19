@@ -9,7 +9,11 @@ info, log, warn) can all be used the same way, and can be either serialized and
 sent somewhere, or dumped to the browser console.
 
 ```javascript
+// browser
 var log = new Herrera.Log();
+
+// node
+var log = require("h-log").log;
 
 log.onDone(
     function (entry) {
@@ -31,6 +35,6 @@ Documentation
 - [Usage][]
 
 [Build Status]: https://travis-ci.org/herrera-io/js-log.png?branch=master
-[HTML Example]: doc/example.html
-[Install]: doc/00-Install.md
-[Usage]: doc/01-Usage.md
+[HTML Example]: https://github.com/herrera-io/js-log/blob/master/doc/example.html
+[Install]: https://github.com/herrera-io/js-log/blob/master/doc/00-Install.md
+[Usage]: https://github.com/herrera-io/js-log/blob/master/doc/01-Usage.md
