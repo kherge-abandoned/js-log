@@ -1,4 +1,28 @@
 {
+    "name": "log",
+    "version": "0.0.0",
+    "description": "A simple log manager.",
+    "keywords": ["log"],
+    "homepage": "https://github.com/herrera-io/js-log",
+    "bugs": {
+        "url": "https://github.com/herrera-io/js-log/issues"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/herrera-io/js-log/blob/master/LICENSE"
+        }
+    ],
+    "author": {
+        "name": "Kevin Herrera",
+        "email": "kevin@herrera.io",
+        "url": "http://kevin.herrera.io/"
+    },
+    "main": "src/lib/main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/herrera-io/js-log.git"
+    },
     "devDependencies": {
         "grunt": "~0.4",
         "grunt-contrib-uglify": "~0.2",
