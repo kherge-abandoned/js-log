@@ -14,18 +14,20 @@
     <script type="text/javascript" src="../src/lib/Herrera/Log/Entry.js"></script>
     <script type="text/javascript" src="../src/lib/Herrera/Log/Entry/Attribute.js"></script>
     <script type="text/javascript" src="../src/lib/Herrera/Log/Entry/Attributes.js"></script>
+    <script type="text/javascript" src="../src/lib/Herrera/Log/Event.js"></script>
     <script type="text/javascript">
       var log = new Herrera.Log();
 
       if (typeof console !== "undefined") {
-          log.onDone(
+          log.done().add(
               function (entry) {
-                  "use strict";
-
-                  // assuming console is smart, and can render friendly objects
-                  if (typeof console[entry.getType()] !== "undefined") {
-                      console[entry.getType()](entry.toObject());
-                  }
+                  console[entry.getType()].apply(
+                      console,
+                      [].concat(
+                          entry.getValues(),
+                          [entry.getAttributes().toArray()]
+                      )
+                  );
               }
           );
       }
