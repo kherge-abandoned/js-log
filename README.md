@@ -16,7 +16,7 @@ var log = new Herrera.Log();
 var log = require("h-log").log;
     log = new log();
 
-log.onDone(
+log.done().add(
     function (entry) {
         // for pretty browser objects in console
         console[entry.getType()](entry.toObject());

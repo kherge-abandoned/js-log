@@ -15,6 +15,13 @@
     Herrera.Log = function () {
 
         /**
+         * The "added" event.
+         *
+         * @type {Herrera.Log.Event}
+         */
+        var added = new Herrera.Log.Event();
+
+        /**
          * The collection of entries.
          *
          * @type {Array<Herrera.Log.Entry>}
@@ -22,11 +29,11 @@
         var entries = [];
 
         /**
-         * The event observers.
+         * The "done" event.
          *
-         * @type {Array<Function>}
+         * @type {Herrera.Log.Event}
          */
-        var observers = [];
+        var done = new Herrera.Log.Event();
 
         /**
          * Self reference for private methods.
@@ -63,21 +70,12 @@
         };
 
         /**
-         * Triggers the "done" event.
+         * Returns the "done" event.
          *
-         * @param {Herrera.Log.Entry} entry The entry.
-         *
-         * @throws TypeError If the argument is not a valid entry.
+         * @param {Herrera.Log.Event} The event.
          */
-        this.doDone = function (entry) {
-            if ((typeof entry !== "object")
-                || !(entry instanceof Herrera.Log.Entry)) {
-                throw new TypeError("Not an instance of Herrera.Log.Entry.");
-            }
-
-            for (var i = 0; i < observers.length; i++) {
-                observers[i](entry, this);
-            }
+        this.done = function () {
+            return done;
         };
 
         /**
@@ -89,19 +87,6 @@
          */
         this.error = function () {
             return add("error", arguments);
-        };
-
-        /**
-         * Returns the registered "done" observers.
-         *
-         * Note that the list of registered observers may include multiple
-         * instances of the same observer. This is indicates that the same
-         * observer was registered more than once.
-         *
-         * @returns {Array<Function>}
-         */
-        this.getDoneObservers = function () {
-            return observers;
         };
 
         /**
@@ -133,59 +118,6 @@
          */
         this.log = function () {
             return add("log", arguments);
-        };
-
-        /**
-         * Removes  the "done" observer callback.
-         *
-         * By default, only a single occurrence of a callback (that has been
-         * registered multiple times) will be removed. If `all` is set to true,
-         * all occurrences of the same observer will be removed.
-         *
-         * @param {Function} callback The observer callback.
-         * @param {Boolean}  [all]    Remove all occurrences?
-         *
-         * @returns {Herrera.Log} The manager.
-         *
-         * @throws TypeError If the callback is not a function.
-         */
-        this.offDone = function (callback, all) {
-            if (typeof callback !== "function") {
-                throw new TypeError("The callback must be a function.");
-            }
-
-            var i;
-
-            while (-1 !== (i = observers.indexOf(callback))) {
-                observers.splice(i, 1);
-
-                if (!all || all === undefined) {
-                    break;
-                }
-            }
-
-            return this;
-        };
-
-        /**
-         * Adds an observer callback to the "done" event.
-         *
-         * Note that the same observer can be added more than once.
-         *
-         * @param {Function} callback The observer callback.
-         *
-         * @returns {Herrera.Log} The manager.
-         *
-         * @throws TypeError If the callback is not a function.
-         */
-        this.onDone = function (callback) {
-            if (typeof callback !== "function") {
-                throw new TypeError("The callback must be a function.");
-            }
-
-            observers.push(callback);
-
-            return this;
         };
 
         /**

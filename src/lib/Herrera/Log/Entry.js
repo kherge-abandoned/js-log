@@ -72,7 +72,7 @@
                 done = true;
 
                 if (log) {
-                    log.doDone(this);
+                    log.done().notify(this);
                 }
             }
         };

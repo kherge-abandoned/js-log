@@ -33,37 +33,11 @@ test(
 );
 
 test(
-    "doDone()",
+    "done()",
     function () {
         "use strict";
 
-        raises(
-            function () {
-                log.doDone(123);
-            },
-            TypeError,
-            "Prevents non-object values from being used."
-        );
-
-        raises(
-            function () {
-                log.doDone(new Date());
-            },
-            TypeError,
-            "Prevents non-Herrera.Log.Entry objects from being used."
-        );
-
-        var called = 0;
-        var observer = function () { called++; };
-
-        log
-            .onDone(observer)
-            .onDone(observer)
-            .onDone(observer)
-            .debug("test")
-            .done();
-
-        equal(called, 3, "The registered observers are called.");
+        ok(log.done() instanceof Herrera.Log.Event, "The event is returned.");
     }
 );
 
@@ -107,27 +81,6 @@ test(
 );
 
 test(
-    "getDoneObservers()",
-    function () {
-        "use strict";
-
-        var a = function () { return 123; };
-        var b = function () { return 456; };
-
-        log
-            .onDone(a)
-            .onDone(b)
-            .onDone(a);
-
-        deepEqual(
-            log.getDoneObservers(),
-            [a, b, a],
-            "The \"done\" observers are returned."
-        );
-    }
-);
-
-test(
     "info()",
     function () {
         "use strict";
@@ -166,84 +119,6 @@ test(
         );
 
         deepEqual(result.getLog(), log, "The log manager is set.");
-    }
-);
-
-test(
-    "offDone()",
-    function () {
-        "use strict";
-
-        raises(
-            function () {
-                log.offDone(123);
-            },
-            TypeError,
-            "Prevents non-function values from being used."
-        );
-
-        var a = function () { return 123; };
-        var b = function () { return 456; };
-
-        log
-            .onDone(a)
-            .onDone(b)
-            .onDone(a)
-            .onDone(b);
-
-        deepEqual(
-            log.offDone(b),
-            log,
-            "The manager is returned."
-        );
-
-        deepEqual(
-            log.getDoneObservers(),
-            [a, a, b],
-            "Only one occurrence of the same observer is removed."
-        );
-
-        log.offDone(a, true);
-
-        deepEqual(
-            log.getDoneObservers(),
-            [b],
-            "All occurrences of the same observer is removed."
-        );
-    }
-);
-
-test(
-    "onDone()",
-    function () {
-        "use strict";
-
-        raises(
-            function () {
-                log.onDone(123);
-            },
-            TypeError,
-            "Prevents non-function values from being used."
-        );
-
-        var a = function () { return 123; };
-        var b = function () { return 456; };
-
-        deepEqual(
-            log.onDone(a),
-            log,
-            "The manager is returned."
-        );
-
-        log
-            .onDone(b)
-            .onDone(a);
-
-        deepEqual(
-            log.getDoneObservers(),
-            [a, b, a],
-            "The observers are added (single and multiple occurrence)."
-        );
     }
 );
 

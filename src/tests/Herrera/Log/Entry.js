@@ -55,7 +55,7 @@ test(
 
         var called = 0;
 
-        log.onDone(
+        log.done().add(
             function (input) {
                 if (input instanceof Herrera.Log.Entry) {
                     called++;
