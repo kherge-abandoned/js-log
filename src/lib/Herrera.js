@@ -1,4 +1,7 @@
-if (typeof Herrera === "undefined") {
-    //noinspection JSHint
-    var Herrera = {};
-}
+(function (exports) {
+
+    "use strict";
+
+    exports.Herrera = {};
+
+})(typeof global === "undefined" ? window : global);
