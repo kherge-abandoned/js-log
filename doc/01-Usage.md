@@ -8,7 +8,7 @@ To begin using Log in your Node.js project, you will first need to create
 your own manager.
 
 ```javascript
-var log = require("logjs").log;
+var log = require("log").log;
 ```
 
 Browser
