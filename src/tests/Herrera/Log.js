@@ -10,8 +10,12 @@ module(
             log = new Herrera.Log();
 
             log.added().add(
-                function () {
-                    added++;
+                function (entry, manager) {
+                    if (entry instanceof Herrera.Log.Entry) {
+                        if (manager instanceof Herrera.Log) {
+                            added++;
+                        }
+                    }
                 }
             );
         }

@@ -59,7 +59,7 @@
 
             entries.push(entry);
 
-            added.notify(entry);
+            added.notify(entry, that);
 
             return entry;
         };

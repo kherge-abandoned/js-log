@@ -56,9 +56,11 @@ test(
         var called = 0;
 
         log.done().add(
-            function (input) {
+            function (input, manager) {
                 if (input instanceof Herrera.Log.Entry) {
-                    called++;
+                    if (manager instanceof Herrera.Log) {
+                        called++;
+                    }
                 }
             }
         );
