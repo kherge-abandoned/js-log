@@ -14,10 +14,15 @@ var log = new Herrera.Log();
 
 // node
 var log = require("h-log").log;
+    log = new log();
 
 log.onDone(
     function (entry) {
+        // for pretty browser objects in console
         console[entry.getType()](entry.toObject());
+
+        // for node
+        console[entry.getType()](entry.toString());
     }
 );
 
