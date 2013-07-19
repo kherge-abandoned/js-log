@@ -1,14 +1,32 @@
 Usage
 =====
 
-To begin using Log, you will first need to create your own manager.
+Node.js
+-------
 
-Creating a Manager
-------------------
+To begin using Log in your Node.js project, you will first need to create
+your own manager.
+
+```javascript
+var log = require("logjs").log;
+```
+
+Browser
+-------
+
+To begin using Log in your browser, you will first need to create your own
+manager.
 
 ```javascript
 var log = new Herrera.Log();
 ```
+
+Common
+------
+
+This part of the usage guide covers both Node.js and browser usage.
+
+### Manager Methods
 
 This manager will allow you to create and retrieve log entries. Like most
 browsers' `console` object, you will have access to the following methods:
@@ -19,8 +37,7 @@ browsers' `console` object, you will have access to the following methods:
 - `log()`
 - `warn()`
 
-Observing Log Entries
----------------------
+### Observing Log Entries
 
 These methods accept the same arguments as their `console` counterparts. Note
 however, unlike console, these are simply stored within the log manager. They
@@ -74,8 +91,7 @@ entry.done();
 entry.attr("another", "attribute"); // throws Error
 ```
 
-Retrieving Log Entries
-----------------------
+### Retrieving Log Entries
 
 There are three ways you can retrieve log entries.
 
